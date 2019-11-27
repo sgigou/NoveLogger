@@ -24,10 +24,9 @@ class NoveLoggerTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func testLogPerformance() {
         self.measure {
-            // Put the code you want to measure the time of here.
+            NoveLogger.debug("A standard message")
         }
     }
 
