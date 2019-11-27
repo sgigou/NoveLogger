@@ -10,6 +10,7 @@
 		3904ACC7238EB29C00D71D96 /* NoveLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3904ACBD238EB29C00D71D96 /* NoveLogger.framework */; };
 		3904ACCC238EB29C00D71D96 /* NoveLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3904ACCB238EB29C00D71D96 /* NoveLoggerTests.swift */; };
 		3904ACCE238EB29C00D71D96 /* NoveLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 3904ACC0238EB29C00D71D96 /* NoveLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3904ACD8238EB7BF00D71D96 /* NoveLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3904ACD7238EB7BF00D71D96 /* NoveLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		3904ACC6238EB29C00D71D96 /* NoveLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoveLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3904ACCB238EB29C00D71D96 /* NoveLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveLoggerTests.swift; sourceTree = "<group>"; };
 		3904ACCD238EB29C00D71D96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3904ACD7238EB7BF00D71D96 /* NoveLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				3904ACBF238EB29C00D71D96 /* NoveLogger */,
-				3904ACCA238EB29C00D71D96 /* Tests */,
+				3904ACCA238EB29C00D71D96 /* NoveLoggerTests */,
 				3904ACBE238EB29C00D71D96 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,18 +74,19 @@
 			isa = PBXGroup;
 			children = (
 				3904ACC0238EB29C00D71D96 /* NoveLogger.h */,
+				3904ACD7238EB7BF00D71D96 /* NoveLogger.swift */,
 				3904ACC1238EB29C00D71D96 /* Info.plist */,
 			);
 			path = NoveLogger;
 			sourceTree = "<group>";
 		};
-		3904ACCA238EB29C00D71D96 /* Tests */ = {
+		3904ACCA238EB29C00D71D96 /* NoveLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
 				3904ACCB238EB29C00D71D96 /* NoveLoggerTests.swift */,
 				3904ACCD238EB29C00D71D96 /* Info.plist */,
 			);
-			path = Tests;
+			path = NoveLoggerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					3904ACBC238EB29C00D71D96 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					3904ACC5238EB29C00D71D96 = {
 						CreatedOnToolsVersion = 11.0;
@@ -195,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3904ACD8238EB7BF00D71D96 /* NoveLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +345,7 @@
 		3904ACD2238EB29C00D71D96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F2M6RF7E9E;
@@ -359,6 +365,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -367,6 +374,7 @@
 		3904ACD3238EB29C00D71D96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F2M6RF7E9E;
@@ -394,6 +402,7 @@
 		3904ACD5238EB29C00D71D96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F2M6RF7E9E;
 				INFOPLIST_FILE = NoveLoggerTests/Info.plist;
@@ -412,6 +421,7 @@
 		3904ACD6238EB29C00D71D96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F2M6RF7E9E;
 				INFOPLIST_FILE = NoveLoggerTests/Info.plist;
