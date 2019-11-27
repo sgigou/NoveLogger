@@ -11,6 +11,6 @@ Pod::Spec.new do |spec|
   spec.social_media_url   = "https://twitter.com/SteveGigou"
   spec.platform     = :ios, "9.0"
   spec.source       = { :git => "https://github.com/sgigou/NoveLogger.git", :tag => "#{spec.version}" }
-  spec.source_files  = "NoveLogger/Classes"
+  spec.source_files  = "NoveLogger"
   spec.swift_versions = "5.0"
 end
