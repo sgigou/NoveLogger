@@ -27,10 +27,16 @@ class NoveLoggerTests: XCTestCase {
         XCTAssertNil(log)
     }
     
-    func testVerbose() {
-        let verboseLog = NoveLogger.verbose("A message with %d %@.", args: 2, "arguments")
-        let expectedLog = "[VERBOSE] A message with 2 arguments."
-        XCTAssertEqual(verboseLog, expectedLog)
+    func testSimpleMessage() {
+        let logOutput = NoveLogger.warning("A simple message")
+        let expectedOutput = "[WARNING] A simple message"
+        XCTAssertEqual(logOutput, expectedOutput)
+    }
+    
+    func testFormat() {
+        let logOutput = NoveLogger.debug("A message with %d %@.", args: 2, "arguments")
+        let expectedOutput = "[DEBUG] A message with 2 arguments."
+        XCTAssertEqual(logOutput, expectedOutput)
     }
 
     func testLogPerformance() {
