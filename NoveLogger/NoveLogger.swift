@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NoveLogger {
+public class NoveLogger {
     
     // MARK: Log functions
     
@@ -16,7 +16,7 @@ class NoveLogger {
      Logs a message. Debug level.
      - parameter message: A value conforms `Streamable`, `Printable`, `DebugPrintable`.
      */
-    static func debug(_ message: Any) {
+    public static func debug(_ message: Any) {
         #if DEBUG
         debugPrint("[DEBUG] \(message)")
         #endif
@@ -26,7 +26,7 @@ class NoveLogger {
      Logs a message. Warning level.
      - parameter message: A value conforms `Streamable`, `Printable`, `DebugPrintable`.
      */
-    static func warning(_ message: Any) {
+    public static func warning(_ message: Any) {
         #if DEBUG
         print("[WARNING] \(message)")
         #endif
@@ -36,7 +36,7 @@ class NoveLogger {
      Logs a message. Error level.
      - parameter message: A value conforms `Streamable`, `Printable`, `DebugPrintable`.
      */
-    static func error(_ message: Any) {
+    public static func error(_ message: Any) {
         #if DEBUG
         print("[ERROR] \(message)")
         #endif
