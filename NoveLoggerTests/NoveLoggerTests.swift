@@ -17,7 +17,13 @@ class NoveLoggerTests: XCTestCase {
     
     func testNoLog() {
         NoveLogger.defaultLogger.logLevel = .off
-        let log = NoveLogger.verbose("Just a test")
+        let log = NoveLogger.verbose("Test message")
+        XCTAssertNil(log)
+    }
+    
+    func testLowerLevel() {
+        NoveLogger.defaultLogger.logLevel = .warning
+        let log = NoveLogger.debug("Test message")
         XCTAssertNil(log)
     }
     

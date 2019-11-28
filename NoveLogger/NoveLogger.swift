@@ -18,6 +18,10 @@ public class NoveLogger {
     
     // MARK: Log functions
     
+    public static func emptyLine() {
+        defaultLogger.emptyLine()
+    }
+    
     /**
      Print a new line.
     */
@@ -44,6 +48,88 @@ public class NoveLogger {
     @discardableResult public func verbose(_ format: String = "", args: CVarArg...) -> String? {
         return log(.verbose, format: format, args: args)
     }
+    
+    /**
+     Logs a message with the given format and arguments at debug level.
+     - parameter format: Formatted string.
+     - parameter args: Arguments list.
+     - returns: The string logged out.
+    */
+    @discardableResult public static func debug(_ format: String = "", args: CVarArg...) -> String? {
+        return defaultLogger.log(.debug, format: format, args: args)
+    }
+    
+    /**
+     Logs a message with the given format and arguments at debug level.
+     - parameter format: Formatted string.
+     - parameter args: Arguments list.
+     - returns: The string logged out.
+    */
+    @discardableResult public func debug(_ format: String = "", args: CVarArg...) -> String? {
+        return log(.debug, format: format, args: args)
+    }
+    
+    /**
+     Logs a message with the given format and arguments at info level.
+     - parameter format: Formatted string.
+     - parameter args: Arguments list.
+     - returns: The string logged out.
+    */
+    @discardableResult public static func info(_ format: String = "", args: CVarArg...) -> String? {
+        return defaultLogger.log(.info, format: format, args: args)
+    }
+    
+    /**
+     Logs a message with the given format and arguments at info level.
+     - parameter format: Formatted string.
+     - parameter args: Arguments list.
+     - returns: The string logged out.
+    */
+    @discardableResult public func info(_ format: String = "", args: CVarArg...) -> String? {
+        return log(.info, format: format, args: args)
+    }
+    
+    /**
+     Logs a message with the given format and arguments at warning level.
+     - parameter format: Formatted string.
+     - parameter args: Arguments list.
+     - returns: The string logged out.
+    */
+    @discardableResult public static func warning(_ format: String = "", args: CVarArg...) -> String? {
+        return defaultLogger.log(.warning, format: format, args: args)
+    }
+    
+    /**
+     Logs a message with the given format and arguments at warning level.
+     - parameter format: Formatted string.
+     - parameter args: Arguments list.
+     - returns: The string logged out.
+    */
+    @discardableResult public func warning(_ format: String = "", args: CVarArg...) -> String? {
+        return log(.warning, format: format, args: args)
+    }
+    
+    /**
+     Logs a message with the given format and arguments at error level.
+     - parameter format: Formatted string.
+     - parameter args: Arguments list.
+     - returns: The string logged out.
+    */
+    @discardableResult public static func error(_ format: String = "", args: CVarArg...) -> String? {
+        return defaultLogger.log(.error, format: format, args: args)
+    }
+    
+    /**
+     Logs a message with the given format and arguments at error level.
+     - parameter format: Formatted string.
+     - parameter args: Arguments list.
+     - returns: The string logged out.
+    */
+    @discardableResult public func error(_ format: String = "", args: CVarArg...) -> String? {
+        return log(.error, format: format, args: args)
+    }
+    
+    // MARK: Utils
     
     /**
      Log and return the logged message.
