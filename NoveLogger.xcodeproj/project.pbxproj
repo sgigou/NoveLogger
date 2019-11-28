@@ -11,6 +11,7 @@
 		3904ACCC238EB29C00D71D96 /* NoveLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3904ACCB238EB29C00D71D96 /* NoveLoggerTests.swift */; };
 		3904ACCE238EB29C00D71D96 /* NoveLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 3904ACC0238EB29C00D71D96 /* NoveLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3904ACD8238EB7BF00D71D96 /* NoveLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3904ACD7238EB7BF00D71D96 /* NoveLogger.swift */; };
+		3904ACDA238FB9CD00D71D96 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3904ACD9238FB9CD00D71D96 /* LogLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		3904ACCB238EB29C00D71D96 /* NoveLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveLoggerTests.swift; sourceTree = "<group>"; };
 		3904ACCD238EB29C00D71D96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3904ACD7238EB7BF00D71D96 /* NoveLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveLogger.swift; sourceTree = "<group>"; };
+		3904ACD9238FB9CD00D71D96 /* LogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				3904ACC0238EB29C00D71D96 /* NoveLogger.h */,
 				3904ACD7238EB7BF00D71D96 /* NoveLogger.swift */,
+				3904ACD9238FB9CD00D71D96 /* LogLevel.swift */,
 				3904ACC1238EB29C00D71D96 /* Info.plist */,
 			);
 			path = NoveLogger;
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3904ACD8238EB7BF00D71D96 /* NoveLogger.swift in Sources */,
+				3904ACDA238FB9CD00D71D96 /* LogLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
