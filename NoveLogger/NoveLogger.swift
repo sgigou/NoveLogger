@@ -16,6 +16,9 @@ public class NoveLogger {
     /// Current log level
     public var logLevel = LogLevel.defaultLevel
     
+    /// Display date in logs
+    private let dateFormatter = DateFormatter()
+    
     /// Log function to use
     #if DEBUG
     private let logFunction: (_ format: String) -> Void = { format in print(format) }
@@ -24,6 +27,13 @@ public class NoveLogger {
     private let logFunction: (_ format: String, _ args: CVarArg...) -> Void = NSLog
     private let usingNSLog = true
     #endif
+    
+    // MARK: Life cycle
+    
+    public init() {
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "y-MM-dd HH:mm:ss.SSS"
+    }
     
     // MARK: Log functions
     
@@ -152,10 +162,12 @@ public class NoveLogger {
         if level < logLevel {
             return nil
         }
-
+        
+        let dateTime = usingNSLog ? "" : "\(dateFormatter.string(from: Date()))"
+        let levelName =  "[\(LogLevel.logName(level))]"
         let message = String(format: format, arguments: args)
 
-        let logMessage = "[\(LogLevel.logName(level))] \(message)"
+        let logMessage = "\(dateTime) \(levelName) \(message)"
 
         logFunction(logMessage)
         return logMessage
