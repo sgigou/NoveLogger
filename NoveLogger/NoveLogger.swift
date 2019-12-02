@@ -16,6 +16,15 @@ public class NoveLogger {
     /// Current log level
     public var logLevel = LogLevel.defaultLevel
     
+    /// Log function to use
+    #if DEBUG
+    private let logFunction: (_ format: String) -> Void = { format in print(format) }
+    private let usingNSLog = false
+    #else
+    private let logFunction: (_ format: String, _ args: CVarArg...) -> Void = NSLog
+    private let usingNSLog = true
+    #endif
+    
     // MARK: Log functions
     
     public static func emptyLine() {
@@ -26,7 +35,7 @@ public class NoveLogger {
      Print a new line.
     */
     public func emptyLine() {
-        print("")
+        logFunction("")
     }
     
     /**
@@ -144,17 +153,11 @@ public class NoveLogger {
             return nil
         }
 
-        /*let message: String
-        if args.count == 0 {
-            message = format
-        } else {
-            message = String(format: format, arguments: args)
-        }*/
         let message = String(format: format, arguments: args)
 
         let logMessage = "[\(LogLevel.logName(level))] \(message)"
 
-        print(logMessage)
+        logFunction(logMessage)
         return logMessage
     }
     
