@@ -23,6 +23,24 @@ A simple Swift logger using `print` in Debug and `NSLog` in Production.
 
 ## Installation
 
+NoveLogger uses [CocoaPods](http://cocoapods.org). It is a dependency manager for Cocoa projects.
+
+To integrate **NoveLogger** into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+pod 'NoveLogger', '~> 1.0'
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+
 ## Usage
 
 ### Basics
