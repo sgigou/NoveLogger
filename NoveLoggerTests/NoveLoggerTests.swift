@@ -16,6 +16,8 @@ class NoveLoggerTests: XCTestCase {
     // MARK: Set up
 
     override func setUp() {
+        super.setUp()
+        
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "y-MM-dd HH:mm:--.---"
         
@@ -37,19 +39,19 @@ class NoveLoggerTests: XCTestCase {
     }
     
     func testSimpleMessage() {
-        var logOutput = NoveLogger.warning("A simple message")
+        var logOutput = NoveLogger.warning("A simple message"), lineNumber = #line
         logOutput = replaceSecondsAndMilliSeconds(logOutput!)
         
-        let expectedOutput = "\(dateFormatter.string(from: Date())) [WARNING] A simple message"
+        let expectedOutput = "\(dateFormatter.string(from: Date())) [WARNING] [NoveLoggerTests.swift:\(lineNumber)] testSimpleMessage(): A simple message"
         
         XCTAssertEqual(logOutput, expectedOutput)
     }
     
     func testFormat() {
-        var logOutput = NoveLogger.debug("A message with %d %@.", args: 2, "arguments")
+        var logOutput = NoveLogger.debug("A message with %d %@.", args: 2, "arguments"), lineNumber = #line
         logOutput = replaceSecondsAndMilliSeconds(logOutput!)
         
-        let expectedOutput = "\(dateFormatter.string(from: Date())) [DEBUG] A message with 2 arguments."
+        let expectedOutput = "\(dateFormatter.string(from: Date())) [DEBUG] [NoveLoggerTests.swift:\(lineNumber)] testFormat(): A message with 2 arguments."
         
         XCTAssertEqual(logOutput, expectedOutput)
     }
