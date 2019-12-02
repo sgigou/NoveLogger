@@ -10,10 +10,21 @@ import XCTest
 @testable import NoveLogger
 
 class NoveLoggerTests: XCTestCase {
+    
+    private let dateFormatter = DateFormatter()
+    
+    // MARK: Set up
 
     override func setUp() {
+        super.setUp()
+        
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "y-MM-dd HH:mm:--.---"
+        
         NoveLogger.defaultLogger.logLevel = .all
     }
+    
+    // MARK: Tests
     
     func testNoLog() {
         NoveLogger.defaultLogger.logLevel = .off
@@ -28,21 +39,35 @@ class NoveLoggerTests: XCTestCase {
     }
     
     func testSimpleMessage() {
-        let logOutput = NoveLogger.warning("A simple message")
-        let expectedOutput = "[WARNING] A simple message"
+        var logOutput = NoveLogger.warning("A simple message"), lineNumber = #line
+        logOutput = replaceSecondsAndMilliSeconds(logOutput!)
+        
+        let expectedOutput = "\(dateFormatter.string(from: Date())) [WARNING] [NoveLoggerTests.swift:\(lineNumber)] testSimpleMessage(): A simple message"
+        
         XCTAssertEqual(logOutput, expectedOutput)
     }
     
     func testFormat() {
-        let logOutput = NoveLogger.debug("A message with %d %@.", args: 2, "arguments")
-        let expectedOutput = "[DEBUG] A message with 2 arguments."
+        var logOutput = NoveLogger.debug("A message with %d %@.", args: 2, "arguments"), lineNumber = #line
+        logOutput = replaceSecondsAndMilliSeconds(logOutput!)
+        
+        let expectedOutput = "\(dateFormatter.string(from: Date())) [DEBUG] [NoveLoggerTests.swift:\(lineNumber)] testFormat(): A message with 2 arguments."
+        
         XCTAssertEqual(logOutput, expectedOutput)
     }
 
     func testLogPerformance() {
         self.measure {
-            NoveLogger.verbose("A message with %d %s.", args: [2, "arguments"])
+            NoveLogger.verbose("A message with %d %@.", args: 2, "arguments")
         }
+    }
+    
+    // MARK: Utils
+    
+    func replaceSecondsAndMilliSeconds(_ string: String) -> String {
+        let pattern = "(\\d{2}).\\d{3}"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        return regex.stringByReplacingMatches(in: string, options: [], range: NSMakeRange(0, string.count), withTemplate: "--.---")
     }
 
 }
