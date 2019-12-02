@@ -198,7 +198,7 @@ public class NoveLogger {
         let message = String(format: format, arguments: args)
         let path = "[\((file as NSString).lastPathComponent):\(line)] \(function)"
 
-        let logMessage = "\(dateTime) \(levelName) \(path) \(message)"
+        let logMessage = "\(dateTime) \(levelName) \(path): \(message)"
 
         logFunction(logMessage)
         return logMessage
